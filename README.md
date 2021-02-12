@@ -6,4 +6,4 @@
 
 ### `npm install sweetalert` 
 
-### `npm i node` 
+### `npm i lottie-web` 
