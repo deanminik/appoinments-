@@ -1,6 +1,6 @@
 
 
-# install these npm package 
+# install these npm packages 
 
 ### `npm i node` 
 
