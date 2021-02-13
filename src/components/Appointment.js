@@ -1,4 +1,6 @@
 import React from 'react'
+import { PropTypes } from "prop-types";
+
 
  const Appointment = ({appointment,deleteAppointment}) => (
      <div className="cita">
@@ -16,4 +18,9 @@ import React from 'react'
  );
 
 //  note "()=>" it helps to wait the onclick change 
+
+Appointment.propTypes={
+    appointment: PropTypes.object.isRequired,
+    deleteAppointment: PropTypes.func.isRequired
+}
  export default Appointment;

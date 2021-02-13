@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import swal from 'sweetalert';
 import { v4 as uuidv4 } from 'uuid';
+import { PropTypes } from "prop-types";
 
 
 const Form = ({createAppointment}) => {
@@ -134,5 +135,12 @@ const subAppointment =e =>{
     </Fragment>
   );
 };
+
+
+//props
+
+Form.propTypes = {
+  createAppointment: PropTypes.func.isRequired
+}
 
 export default Form;
