@@ -11,7 +11,7 @@ export const LottieAnimationsDoctor = () => {
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        animationData: require('../assets/lottieDoctor.json')
+        animationData: require('./lottieDoctor.json')
       })
     }, [])
 

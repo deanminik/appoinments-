@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from "react";
 import swal from 'sweetalert';
+import { v4 as uuidv4 } from 'uuid';
 
-const Form = () => {
+
+const Form = ({createAppointment}) => {
 
     //create appointment state
 
@@ -15,6 +17,8 @@ const Form = () => {
 
 
     });
+
+    const [error, updateError] = useState(false)
 
 //This starts everytime when the user writes!
 
@@ -33,7 +37,8 @@ const subAppointment =e =>{
     e.preventDefault();
     
     if(pet.trim()===''|| owner.trim()===''|| date.trim()===''|| time.trim()===''|| symptoms.trim()===''){
-        swal({
+      updateError(true);  
+      swal({
             title: "Warming!",
             text: "Some entries are empty, complete all to submit the form.",
             icon: "warning",
@@ -41,7 +46,23 @@ const subAppointment =e =>{
           });
         return;
     }
+
+    updateError(false);
      
+    //add id random
+     appointment.id = uuidv4();
+
+    //create Appointment 
+    createAppointment(appointment);
+
+    //Clean form
+    updateAppointment({
+      pet:'',  //<-name="pet"
+      owner:'',
+      date:'',
+      time:'',
+      symptoms:''
+    }) 
 
 }
 
@@ -66,6 +87,7 @@ const subAppointment =e =>{
           className="u-full-width"
           placeholder="Pet's name"
           onChange={updateState}
+          value={pet}
         />
 
         <label>Owner's name</label>
@@ -75,6 +97,7 @@ const subAppointment =e =>{
           className="u-full-width"
           placeholder="Owner's name"
           onChange={updateState}
+          value={owner}
         />
 
         <label>Date</label>
@@ -83,6 +106,7 @@ const subAppointment =e =>{
           name="date"
           className="u-full-width"
           onChange={updateState}
+          value={date}
         />
 
         <label>Time</label>
@@ -91,21 +115,15 @@ const subAppointment =e =>{
           name="time"
           className="u-full-width"
           onChange={updateState}
+          value={time}
         
         />
 
-        <label>Owner's name</label>
-        <input
-          type="text"
-          name="owner"
-          className="u-full-width"
-          placeholder="Owner's name"
-          onChange={updateState}
-        />
+      
 
         <label>Symptoms</label>
            
-       <textarea className="u-full-width" name="symptoms" onChange={updateState} >
+       <textarea className="u-full-width" name="symptoms" onChange={updateState} value={symptoms}  >
            
        </textarea>
 

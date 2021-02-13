@@ -14,7 +14,7 @@ h1, h2  {
   padding: 3rem 0;
   text-align: center;
 
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   font-family: 'Fjalla One', sans-serif;
   letter-spacing: 1px;
