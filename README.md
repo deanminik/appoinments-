@@ -7,3 +7,5 @@
 ### `npm install sweetalert` 
 
 ### `npm i lottie-web` 
+
+### `npm i uuid` 
